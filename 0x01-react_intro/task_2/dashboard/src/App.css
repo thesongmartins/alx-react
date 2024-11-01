@@ -1,0 +1,40 @@
+.App {
+  margin: 0 auto;
+  overflow: auto;
+  padding: 0 20px;
+}
+
+.App-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+hr {
+  border: 0.12rem solid #de3444;
+}
+.horizontal-rule {
+  margin-top: 28rem;
+}
+.App-body {
+  margin: 2rem;
+}
+.App-logo {
+  width: 150px;
+  height: 150px;
+}
+.App-header h1 {
+  color: #de3444;
+}
+.App-footer {
+  font-style: italic;
+}
+.App-footer p {
+  margin: 1rem;
+  text-align: center;
+}
+form {
+  display: flex;
+}
+form div {
+  margin-right: 0.625rem;
+}
