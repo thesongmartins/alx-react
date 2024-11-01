@@ -1,23 +1,21 @@
-import Hob from './Hob.jpg';
-import './App.css';
+import Hob from "./Hob.jpg";
+import "./App.css";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <img src={Hob} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <h1>School dashboard</h1>
       </header>
+      <hr />
+      <div className="App-body">
+        <p>Login to access the full dashboard</p>
+      </div>
+      <hr className="horizontal-rule" />
+      <footer className="App-footer">
+        <p>Copyright 2020 - Holberton School</p>
+      </footer>
     </div>
   );
 }
