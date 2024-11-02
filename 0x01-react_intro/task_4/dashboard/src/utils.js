@@ -1,14 +1,16 @@
-exports.getFullYear = () => {
+export function getFullYear() {
     return new Date().getFullYear();
 }
 
-exports.getFooterCopy = (isIndex) => {
+export function getFooterCopy(isIndex) {
     return isIndex ? 'Holberton School' : 'Holberton School main dashboard';
 }
 
-exports.getLatestNotification = () => '<strong>Urgent requirement</strong> - complete by EOD';
+export function getLatestNotification() {
+    return '<strong>Urgent requirement</strong> - complete by EOD';
+}
 
 
-exports.buttonClicked = () => {
+export function buttonClicked() {
     console.log("Close Button has been clicked")
 }

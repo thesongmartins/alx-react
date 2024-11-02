@@ -1,6 +1,6 @@
 import Hob from "./Hob.jpg";
 import "./App.css";
-import { getFullYear, getFooterCopy } from "./utils";
+import { getFullYear, getFooterCopy } from "./utils.js";
 
 function App() {
   return (

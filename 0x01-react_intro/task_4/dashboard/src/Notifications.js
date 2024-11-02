@@ -1,6 +1,6 @@
 import React from "react";
 import "./Notifications.css";
-import { buttonClicked, getLatestNotification } from "./utils";
+import { buttonClicked, getLatestNotification } from "./utils.js";
 
 const Notifications = () => {
   return (

@@ -1,5 +1,5 @@
 // utils.test.js
-import { getFullYear, getFooterCopy, getLatestNotification } from './utils';
+import { getFullYear, getFooterCopy, getLatestNotification } from './utils.js';
 
 describe('Utility functions tests', () => {
     test('getFullYear returns the current year', () => {
