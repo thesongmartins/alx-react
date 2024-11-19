@@ -1,45 +1,34 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import CourseListRow from './CourseListRow';
+import React from "react";
+import CourseListRow from "./CourseListRow";
+import { shallow } from "enzyme";
+import { StyleSheetTestUtils } from "aphrodite";
 
-describe('CourseListRow component', () => {
-  describe('When isHeader is true', () => {
-    test('renders one cell with colspan = 2 when textSecondCell does not exist', () => {
-      render(<CourseListRow isHeader={true} textFirstCell="First Cell" />);
-      
-      const cell = screen.getByText('First Cell');
-      expect(cell).toBeInTheDocument();
-      expect(cell.tagName).toBe('TH');
-      expect(cell).toHaveAttribute('colSpan', '2');
-    });
+beforeEach(() => {
+  StyleSheetTestUtils.suppressStyleInjection();
+});
+afterEach(() => {
+  StyleSheetTestUtils.clearBufferAndResumeStyleInjection();
+});
 
-    test('renders two cells when textSecondCell is present', () => {
-      render(<CourseListRow isHeader={true} textFirstCell="First Cell" textSecondCell="Second Cell" />);
-      
-      const firstCell = screen.getByText('First Cell');
-      const secondCell = screen.getByText('Second Cell');
-      
-      expect(firstCell).toBeInTheDocument();
-      expect(firstCell.tagName).toBe('TH');
-      expect(firstCell).not.toHaveAttribute('colSpan');
+describe("Course List Row component test", () => {
+  it("should render without crashing", () => {
+    const wrapper = shallow(<CourseListRow textFirstCell="test" />);
 
-      expect(secondCell).toBeInTheDocument();
-      expect(secondCell.tagName).toBe('TH');
-    });
+    expect(wrapper.exists()).toBe(true);
   });
 
-  describe('When isHeader is false', () => {
-    test('renders correctly two td elements within a tr element', () => {
-      render(<CourseListRow isHeader={false} textFirstCell="First Cell" textSecondCell="Second Cell" />);
-      
-      const row = screen.getByRole('row');
-      const cells = screen.getAllByRole('cell');
-      
-      expect(row).toBeInTheDocument();
-      expect(cells.length).toBe(2);
+  it("should render one cell with colspan = 2 when textSecondCell null", () => {
+    const wrapper = shallow(<CourseListRow isHeader={true} textFirstCell="test" textSecondCell={null} />);
 
-      expect(cells[0]).toHaveTextContent('First Cell');
-      expect(cells[1]).toHaveTextContent('Second Cell');
-    });
+    expect(wrapper.find("tr").children()).toHaveLength(1);
+    expect(wrapper.find("tr").childAt(0).html()).toEqual('<th style="background-color:#deb5b545" colSpan="2">test</th>');
+  });
+
+  it("should render two cells when textSecondCell not null", () => {
+    const wrapper = shallow(<CourseListRow isHeader={false} textFirstCell="test" textSecondCell="test" />);
+
+    expect(wrapper.find("tr").children()).toHaveLength(2);
+    expect(wrapper.find("tr").childAt(0).html()).toEqual("<td>test</td>");
+    expect(wrapper.find("tr").childAt(1).html()).toEqual("<td>test</td>");
   });
 });
