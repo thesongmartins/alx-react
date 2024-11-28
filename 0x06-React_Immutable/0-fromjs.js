@@ -10,4 +10,4 @@ function getImmutable(object) {
     return fromJS(object);
 }
 
-moduleExpression.exports = getImmutableObject;
+module.exports = getImmutableObject;
